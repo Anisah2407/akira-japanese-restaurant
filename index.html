@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="AKIRA Japanese Kitchen — a manga-inspired Japanese restaurant serving sushi, ramen, dango and matcha.">
+
+    <title>AKIRA | Japanese Kitchen</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         LOADING SCREEN
+    ========================================== -->
+
+    <div id="loader">
+
+        <div class="loader-logo">
+            <img src="images/logo.jpg" alt="AKIRA logo">
+        </div>
+
+        <p>Loading flavour...</p>
+
+        <div class="loading-line"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="nav-logo">
+                <img src="images/logo.jpg" alt="AKIRA Japanese Kitchen logo">
+            </a>
+
+            <nav id="navMenu">
+
+                <a href="#home">HOME</a>
+                <a href="#menu">MENU</a>
+                <a href="#story">OUR STORY</a>
+                <a href="#contact">CONTACT</a>
+
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO / HOME
+    ========================================== -->
+
+    <main>
+
+        <section id="home" class="hero">
+
+            <!-- comic background -->
+            <div class="halftone hero-halftone"></div>
+
+            <div class="comic-lines"></div>
+
+            <div class="hero-content">
+
+                <div class="hero-small-title">
+                    料理 ・ 味 ・ 美
+                </div>
+
+                <h1>
+                    A LITTLE
+                    <span>TASTE</span>
+                    OF JAPAN.
+                </h1>
+
+                <p class="hero-japanese">
+                    「 一口で、日本へ。」
+                </p>
+
+                <p class="hero-description">
+                    Handmade sushi, comforting ramen and sweet little
+                    moments — inspired by Japanese food culture and
+                    illustrated like your favourite manga.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#menu" class="comic-button">
+                        EXPLORE MENU
+                        <span>→</span>
+                    </a>
+
+                    <a href="#story" class="text-button">
+                        OUR STORY
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero food illustration -->
+
+            <div class="hero-art">
+
+                <div class="burst"></div>
+
+                <div class="speech-bubble">
+                    OISHII!!
+                    <span>🍣</span>
+                </div>
+
+                <div class="hero-food-card">
+
+                    <div class="food-number">
+                        #01
+                    </div>
+
+                    <img src="images/sushi-hero.jpg" alt="Japanese sushi" onerror="this.style.display='none'">
+
+                    <div class="fake-sushi">
+
+                        <div class="sushi-rice"></div>
+
+                        <div class="sushi-salmon"></div>
+
+                        <div class="sushi-nori"></div>
+
+                    </div>
+
+                    <div class="food-stamp">
+                        寿司
+                    </div>
+
+                </div>
+
+                <div class="speed-text">
+                    いただきます!
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             INTRO STRIP
+        ========================================== -->
+
+        <section class="intro-strip">
+
+            <div class="intro-item">
+                <span>01</span>
+                FRESH
+            </div>
+
+            <div class="intro-item">
+                <span>02</span>
+                HANDCRAFTED
+            </div>
+
+            <div class="intro-item">
+                <span>03</span>
+                JAPANESE INSPIRED
+            </div>
+
+            <div class="intro-item">
+                <span>04</span>
+                MADE WITH LOVE
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             MENU
+        ========================================== -->
+
+        <section id="menu" class="menu-section">
+
+            <div class="section-heading">
+
+                <div class="heading-number">
+                    MENU / 01
+                </div>
+
+                <p class="japanese-heading">
+                    食べましょう
+                </p>
+
+                <h2>
+                    THE <span>MENU</span>
+                </h2>
+
+                <p>
+                    Pick your panel. Choose your flavour.
+                </p>
+
+            </div>
+
+
+            <!-- Menu filters -->
+
+            <div class="filters">
+
+                <button class="filter-btn active" data-filter="all">
+                    ALL
+                </button>
+
+                <button class="filter-btn" data-filter="sushi">
+                    SUSHI
+                </button>
+
+                <button class="filter-btn" data-filter="ramen">
+                    RAMEN
+                </button>
+
+                <button class="filter-btn" data-filter="dessert">
+                    DESSERT
+                </button>
+
+                <button class="filter-btn" data-filter="drink">
+                    DRINKS
+                </button>
+
+            </div>
+
+
+            <!-- Food cards -->
+
+            <div class="food-grid">
+
+
+                <!-- EBI -->
+
+                <article class="food-card" data-category="sushi">
+
+                    <div class="card-tag">
+                        SUSHI / 01
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/ebi.png" alt="Ebi shrimp sushi" onerror="this.style.display='none'">
+
+
+                        <div class="comic-word">
+                            パクッ!
+                        </div>
+
+                    </div>
+
+                    <div class="food-info">
+
+                        <div>
+                            <h3>EBI SHRIMP</h3>
+                            <p>海老</p>
+                        </div>
+
+                        <strong>BND 8.00</strong>
+
+                    </div>
+
+                    <p class="food-description">
+                        Sweet, delicate shrimp resting on
+                        perfectly seasoned sushi rice.
+                    </p>
+
+                    <button class="order-food" data-name="Ebi Shrimp" data-price="8">
+                        ADD TO ORDER +
+                    </button>
+
+                </article>
+
+
+                <!-- IKURA -->
+
+                <article class="food-card" data-category="sushi">
+
+                    <div class="card-tag">
+                        SUSHI / 02
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/ikura.png" alt="Ikura salmon roe sushi" onerror="this.style.display='none'">
+
+
+                        <div class="comic-word">
+                            POP!
+                        </div>
+
+                    </div>
+
+                    <div class="food-info">
+
+                        <div>
+                            <h3>IKURA</h3>
+                            <p>いくら</p>
+                        </div>
+
+                        <strong>BND 10.00</strong>
+
+                    </div>
+
+                    <p class="food-description">
+                        Bright salmon roe with a delicate
+                        ocean-fresh flavour.
+                    </p>
+
+                    <button class="order-food" data-name="Ikura Salmon Roe" data-price="10">
+                        ADD TO ORDER +
+                    </button>
+
+                </article>
+
+
+                <!-- SALMON -->
+
+                <article class="food-card" data-category="sushi">
+
+                    <div class="card-tag">
+                        SUSHI / 03
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/salmon.png" alt="Salmon sashimi" onerror="this.style.display='none'">
+
+
+                        <div class="comic-word">
+                            FRESH!
+                        </div>
+
+                    </div>
+
+                    <div class="food-info">
+
+                        <div>
+                            <h3>SALMON SASHIMI</h3>
+                            <p>鮭刺身</p>
+                        </div>
+
+                        <strong>BND 12.00</strong>
+
+                    </div>
+
+                    <p class="food-description">
+                        Silky slices of salmon served simply
+                        to celebrate its natural flavour.
+                    </p>
+
+                    <button class="order-food" data-name="Salmon Sashimi" data-price="12">
+                        ADD TO ORDER +
+                    </button>
+
+                </article>
+
+
+                <!-- CALIFORNIA -->
+
+                <article class="food-card" data-category="sushi">
+
+                    <div class="card-tag">
+                        SUSHI / 04
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/california.png" alt="California roll" onerror="this.style.display='none'">
+
+                        
+
+                        <div class="comic-word">
+                            WOW!
+                        </div>
+
+                    </div>
+
+                    <div class="food-info">
+
+                        <div>
+                            <h3>CALIFORNIA ROLL</h3>
+                            <p>カリフォルニアロール</p>
+                        </div>
+
+                        <strong>BND 9.00</strong>
+
+                    </div>
+
+                    <p class="food-description">
+                        A creamy, colourful roll with
+                        satisfying texture in every bite.
+                    </p>
+
+                    <button class="order-food" data-name="California Roll" data-price="9">
+                        ADD TO ORDER +
+                    </button>
+
+                </article>
+
+
+                <!-- RAMEN -->
+
+                <article class="food-card large-card" data-category="ramen">
+
+                    <div class="card-tag">
+                        RAMEN / 01
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/ramen.png" alt="Shoyu ramen" onerror="this.style.display='none'">
+
+                        
+
+                        <div class="comic-word ramen-word">
+                            ズズッ!!
+                        </div>
+
+                    </div>
+
+                    <div class="food-info">
+
+                        <div>
+                            <h3>SHOYU RAMEN</h3>
+                            <p>醤油ラーメン</p>
+                        </div>
+
+                        <strong>BND 13.00</strong>
+
+                    </div>
+
+                    <p class="food-description">
+                        A warm bowl of savoury shoyu broth,
+                        noodles and comforting toppings.
+                    </p>
+
+                    <button class="order-food" data-name="Shoyu Ramen" data-price="13">
+                        ADD TO ORDER +
+                    </button>
+
+                </article>
+
+
+                <!-- DANGO -->
+
+                <article class="food-card" data-category="dessert">
+
+                    <div class="card-tag">
+                        DESSERT / 01
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/dango.png" alt="Japanese dango" onerror="this.style.display='none'">
+
+                        
+
+                        <div class="comic-word">
+                            もちもち!
+                        </div>
+
+                    </div>
+
+                    <div class="food-info">
+
+                        <div>
+                            <h3>DANGO</h3>
+                            <p>団子</p>
+                        </div>
+
+                        <strong>BND 6.00</strong>
+
+                    </div>
+
+                    <p class="food-description">
+                        Soft, chewy Japanese rice dumplings
+                        made for a sweet ending.
+                    </p>
+
+                    <button class="order-food" data-name="Dango" data-price="6">
+                        ADD TO ORDER +
+                    </button>
+
+                </article>
+
+
+                <!-- MATCHA -->
+
+                <article class="food-card" data-category="drink">
+
+                    <div class="card-tag">
+                        DRINK / 01
+                    </div>
+
+                    <div class="food-image">
+
+                        <img src="images/matcha.png" alt="Matcha latte" onerror="this.style.display='none'">
+
+                        
+
+                        <div class="comic-word">
+                            ほっ...
+                        </div>
+
+                    </div>
+
+                    <div class="food-info">
+
+                        <div>
+                            <h3>MATCHA LATTE</h3>
+                            <p>抹茶ラテ</p>
+                        </div>
+
+                        <strong>BND 7.00</strong>
+
+                    </div>
+
+                    <p class="food-description">
+                        Creamy ceremonial-inspired matcha
+                        balanced with soft milk.
+                    </p>
+
+                    <button class="order-food" data-name="Matcha Latte" data-price="7">
+                        ADD TO ORDER +
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             ORDER PANEL
+        ========================================== -->
+
+        <section class="order-section">
+
+            <div class="order-panel">
+
+                <div class="order-left">
+
+                    <p class="japanese-heading">
+                        注文
+                    </p>
+
+                    <h2>
+                        BUILD YOUR
+                        <span>ORDER.</span>
+                    </h2>
+
+                    <p>
+                        Select your favourite dishes above and
+                        watch your total update automatically.
+                    </p>
+
+                </div>
+
+                <div class="order-right">
+
+                    <div id="orderList">
+                        <p class="empty-order">
+                            Your order is empty.
+                        </p>
+                    </div>
+
+                    <div class="order-total">
+
+                        <span>TOTAL</span>
+
+                        <strong id="orderTotal">
+                            BND 0.00
+                        </strong>
+
+                    </div>
+
+                    <button id="clearOrder" class="clear-button">
+                        CLEAR ORDER
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             OUR STORY
+        ========================================== -->
+
+        <section id="story" class="story-section">
+
+            <div class="story-grid">
+
+                <div class="story-image">
+
+                    <div class="story-panel">
+
+                        <span class="panel-number">
+                            PANEL #02
+                        </span>
+
+                        <div class="giant-kanji">
+                            味
+                        </div>
+
+                        <p>
+                            FLAVOUR
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="story-content">
+
+                    <p class="heading-number">
+                        OUR STORY / 02
+                    </p>
+
+                    <p class="japanese-heading">
+                        私たちの物語
+                    </p>
+
+                    <h2>
+                        FOOD THAT
+                        <span>TELLS A STORY.</span>
+                    </h2>
+
+                    <p>
+                        AKIRA is a Japanese-inspired food concept
+                        built around one simple idea: great food
+                        should feel memorable.
+                    </p>
+
+                    <p>
+                        From colourful sushi to comforting ramen,
+                        every dish is presented with the playful
+                        spirit of Japanese manga and the warmth
+                        of a neighbourhood kitchen.
+                    </p>
+
+                    <div class="story-facts">
+
+                        <div>
+                            <strong>01</strong>
+                            <span>Fresh ingredients</span>
+                        </div>
+
+                        <div>
+                            <strong>02</strong>
+                            <span>Japanese-inspired flavours</span>
+                        </div>
+
+                        <div>
+                            <strong>03</strong>
+                            <span>Made for food lovers</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             COMIC QUOTE
+        ========================================== -->
+
+        <section class="quote-section">
+
+            <div class="quote-lines"></div>
+
+            <div class="quote-content">
+
+                <span class="quote-symbol">
+                    "
+                </span>
+
+                <h2>
+                    GOOD FOOD.
+                    <br>
+                    GOOD MOOD.
+                    <br>
+                    <span>GOOD STORY.</span>
+                </h2>
+
+                <p>
+                    一緒に食べましょう
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CONTACT
+        ========================================== -->
+
+        <section id="contact" class="contact-section">
+
+            <div class="section-heading">
+
+                <div class="heading-number">
+                    CONTACT / 03
+                </div>
+
+                <p class="japanese-heading">
+                    お問い合わせ
+                </p>
+
+                <h2>
+                    SAY <span>HELLO.</span>
+                </h2>
+
+                <p>
+                    Questions, enquiries or just hungry?
+                    Send us a message.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-info">
+
+                    <div class="contact-card">
+
+                        <span>📍</span>
+
+                        <div>
+                            <h3>VISIT US</h3>
+
+                            <p>
+                                12 Sakura Street<br>
+                                Bandar Seri Begawan
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <span>✉</span>
+
+                        <div>
+                            <h3>EMAIL</h3>
+
+                            <p>
+                                hello@akira-kitchen.com
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <span>☎</span>
+
+                        <div>
+                            <h3>CALL</h3>
+
+                            <p>
+                                +673 123 4567
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <form id="contactForm" class="contact-form">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                NAME *
+                            </label>
+
+                            <input type="text" id="name" placeholder="Your name">
+
+                            <small id="nameError"></small>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                EMAIL *
+                            </label>
+
+                            <input type="email" id="email" placeholder="you@example.com">
+
+                            <small id="emailError"></small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            PHONE
+                        </label>
+
+                        <input type="tel" id="phone" placeholder="+673 ...">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            MESSAGE *
+                        </label>
+
+                        <textarea id="message" rows="5" placeholder="Tell us what's on your mind..."></textarea>
+
+                        <small id="messageError"></small>
+
+                    </div>
+
+
+                    <button type="submit" class="comic-button submit-button">
+
+                        SEND MESSAGE
+                        <span>→</span>
+
+                    </button>
+
+
+                    <div id="formSuccess" class="form-success">
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-top">
+
+            <div class="footer-logo">
+
+                <img src="images/logo.jpg" alt="AKIRA logo">
+
+            </div>
+
+            <div>
+
+                <p>
+                    料理 ・ 味 ・ 美
+                </p>
+
+                <h2>
+                    SEE YOU AT AKIRA.
+                </h2>
+
+            </div>
+
+            <a href="#home" class="back-top">
+                ↑
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 AKIRA Japanese Kitchen
+            </span>
+
+            <span>
+                Designed as a Japanese food manga experience.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2517 @@
+/* =====================================================
+   AKIRA JAPANESE KITCHEN
+   MANGA RESTAURANT WEBSITE
+===================================================== */
+
+
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+
+:root {
+
+    --blue: #416889;
+
+    --dark-blue: #172536;
+
+    --ink: #17202a;
+
+    --orange: #f2a43a;
+
+    --red: #c94a36;
+
+    --cream: #f7efd9;
+
+    --cream-dark: #e9dcc0;
+
+    --green: #667c47;
+
+    --pink: #e58b82;
+
+    --white: #fffaf0;
+
+    --shadow: #101820;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "DM Sans", sans-serif;
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+    overflow-x: hidden;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+#loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: var(--blue);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    transition: opacity .7s ease,
+        visibility .7s ease;
+}
+
+
+#loader.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+}
+
+
+.loader-logo {
+
+    width: 180px;
+
+    height: 180px;
+
+    overflow: hidden;
+
+    margin-bottom: 25px;
+
+    border: 4px solid var(--orange);
+
+    box-shadow: 8px 8px 0 var(--ink);
+}
+
+
+.loader-logo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+#loader p {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 4px;
+
+    font-size: 20px;
+}
+
+
+.loading-line {
+
+    width: 180px;
+
+    height: 5px;
+
+    margin-top: 15px;
+
+    background: var(--orange);
+
+    animation: loading 1.8s infinite;
+}
+
+
+@keyframes loading {
+
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    50% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    51% {
+        transform-origin: right;
+    }
+
+    100% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(247, 239, 217, .94);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 3px solid var(--ink);
+}
+
+
+.nav-container {
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    height: 90px;
+
+    padding: 10px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.nav-logo {
+
+    width: 75px;
+
+    height: 75px;
+
+    overflow: hidden;
+
+    border: 3px solid var(--ink);
+
+    box-shadow: 4px 4px 0 var(--orange);
+
+    transition: .3s ease;
+}
+
+
+.nav-logo:hover {
+
+    transform: rotate(-3deg) scale(1.05);
+
+}
+
+
+.nav-logo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+nav {
+
+    display: flex;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+
+nav a {
+
+    position: relative;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 19px;
+
+    letter-spacing: 2px;
+
+    padding: 10px 0;
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 3px;
+
+    width: 0;
+
+    height: 4px;
+
+    background: var(--red);
+
+    transition: width .3s ease;
+}
+
+
+nav a:hover::after {
+
+    width: 100%;
+}
+
+
+.menu-toggle {
+
+    display: none;
+
+    background: var(--ink);
+
+    color: white;
+
+    border: none;
+
+    font-size: 25px;
+
+    padding: 8px 13px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding: 160px 7% 90px;
+
+    background: var(--blue);
+
+    color: white;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Halftone texture */
+
+.halftone {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(rgba(255, 255, 255, .3) 1px,
+            transparent 1px);
+
+    background-size: 9px 9px;
+
+    opacity: .15;
+
+    pointer-events: none;
+}
+
+
+/* Comic lines */
+
+.comic-lines {
+
+    position: absolute;
+
+    width: 700px;
+
+    height: 700px;
+
+    right: -250px;
+
+    top: 80px;
+
+    background:
+        repeating-conic-gradient(from 0deg,
+            transparent 0deg 9deg,
+            rgba(255, 255, 255, .08) 9deg 11deg);
+
+    border-radius: 50%;
+}
+
+
+/* Hero text */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    animation: heroIn .9s ease both;
+}
+
+
+@keyframes heroIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.hero-small-title {
+
+    color: var(--orange);
+
+    font-family: "Noto Serif JP", serif;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+
+    letter-spacing: 5px;
+}
+
+
+.hero h1 {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: clamp(70px, 9vw, 145px);
+
+    line-height: .82;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 span {
+
+    color: var(--orange);
+
+    display: block;
+
+    text-shadow:
+        5px 5px 0 var(--ink);
+}
+
+
+.hero-japanese {
+
+    font-family: "Noto Serif JP", serif;
+
+    font-size: 25px;
+
+    color: var(--orange);
+
+    margin-bottom: 20px;
+}
+
+
+.hero-description {
+
+    max-width: 560px;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, .85);
+
+    font-size: 16px;
+
+    margin-bottom: 35px;
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   COMIC BUTTON
+===================================================== */
+
+.comic-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 16px 25px;
+
+    background: var(--orange);
+
+    color: var(--ink);
+
+    border: 3px solid var(--ink);
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    box-shadow: 7px 7px 0 var(--ink);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.comic-button span {
+
+    font-size: 25px;
+
+    transition: .25s ease;
+}
+
+
+.comic-button:hover {
+
+    transform: translate(4px, 4px);
+
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+
+.comic-button:hover span {
+
+    transform: translateX(7px);
+}
+
+
+.text-button {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 19px;
+
+    letter-spacing: 2px;
+
+    border-bottom: 3px solid var(--orange);
+
+    padding-bottom: 5px;
+}
+
+
+/* =====================================================
+   HERO FOOD ART
+===================================================== */
+
+.hero-art {
+
+    min-height: 600px;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.burst {
+
+    width: 540px;
+
+    height: 540px;
+
+    position: absolute;
+
+    background:
+        repeating-conic-gradient(var(--orange) 0deg 8deg,
+            transparent 8deg 16deg);
+
+    opacity: .85;
+
+    clip-path: polygon(50% 0%,
+            58% 22%,
+            75% 5%,
+            76% 27%,
+            97% 20%,
+            82% 40%,
+            100% 50%,
+            82% 58%,
+            96% 77%,
+            75% 72%,
+            76% 95%,
+            58% 78%,
+            50% 100%,
+            42% 78%,
+            24% 95%,
+            25% 72%,
+            4% 77%,
+            18% 58%,
+            0% 50%,
+            18% 40%,
+            3% 20%,
+            24% 27%,
+            25% 5%,
+            42% 22%);
+
+    animation: spin 30s linear infinite;
+}
+
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.hero-food-card {
+
+    width: 390px;
+
+    height: 470px;
+
+    background: var(--cream);
+
+    border: 5px solid var(--ink);
+
+    box-shadow: 14px 14px 0 var(--ink);
+
+    position: relative;
+
+    transform: rotate(3deg);
+
+    z-index: 2;
+
+    overflow: hidden;
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: rotate(3deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(3deg) translateY(-15px);
+    }
+}
+
+
+.food-number {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    background: var(--red);
+
+    color: white;
+
+    padding: 7px 12px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 2px;
+
+    z-index: 5;
+}
+
+
+.hero-food-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* Fake sushi illustration */
+
+.fake-sushi {
+
+    position: absolute;
+
+    inset: 60px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+
+.sushi-rice {
+
+    width: 250px;
+
+    height: 220px;
+
+    background: #f7f1d9;
+
+    border-radius: 45%;
+
+    border: 8px solid var(--ink);
+
+    transform: rotate(-8deg);
+
+    position: relative;
+}
+
+
+.sushi-rice::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 120px;
+
+    background: #f28f70;
+
+    border-radius: 50%;
+
+    top: 35px;
+
+    left: 30px;
+
+    border: 5px solid var(--ink);
+}
+
+
+.sushi-salmon {
+
+    display: none;
+}
+
+
+.sushi-nori {
+
+    position: absolute;
+
+    width: 270px;
+
+    height: 45px;
+
+    background: var(--ink);
+
+    border-radius: 30px;
+
+    bottom: 75px;
+
+    z-index: 4;
+}
+
+
+.food-stamp {
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    width: 75px;
+
+    height: 75px;
+
+    border: 3px solid var(--red);
+
+    border-radius: 50%;
+
+    color: var(--red);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family: "Noto Serif JP", serif;
+
+    font-weight: bold;
+
+    transform: rotate(-12deg);
+
+    background: rgba(255, 255, 255, .6);
+}
+
+
+.speech-bubble {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 0;
+
+    background: white;
+
+    color: var(--ink);
+
+    padding: 18px 25px;
+
+    border: 4px solid var(--ink);
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 28px;
+
+    transform: rotate(8deg);
+
+    z-index: 5;
+
+    box-shadow: 6px 6px 0 var(--red);
+}
+
+
+.speech-bubble::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -20px;
+
+    left: 30px;
+
+    border-width: 20px 20px 0 0;
+
+    border-style: solid;
+
+    border-color: var(--ink) transparent transparent transparent;
+}
+
+
+.speed-text {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 20px;
+
+    font-family: "Noto Serif JP", serif;
+
+    font-size: 30px;
+
+    color: white;
+
+    transform: rotate(-8deg);
+
+    z-index: 5;
+
+    text-shadow: 3px 3px 0 var(--ink);
+}
+
+
+/* =====================================================
+   INTRO STRIP
+===================================================== */
+
+.intro-strip {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    background: var(--ink);
+
+    color: white;
+
+    border-bottom: 5px solid var(--orange);
+}
+
+
+.intro-item {
+
+    padding: 22px;
+
+    text-align: center;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    border-right: 1px solid rgba(255, 255, 255, .2);
+}
+
+
+.intro-item span {
+
+    color: var(--orange);
+
+    margin-right: 10px;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   SECTION HEADINGS
+===================================================== */
+
+.section-heading {
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 55px;
+}
+
+
+.heading-number {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    color: var(--red);
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+
+.japanese-heading {
+
+    font-family: "Noto Serif JP", serif;
+
+    color: var(--green);
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+.section-heading h2,
+.story-content h2 {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: clamp(60px, 8vw, 100px);
+
+    line-height: .9;
+
+    letter-spacing: 2px;
+}
+
+
+.section-heading h2 span,
+.story-content h2 span {
+
+    color: var(--red);
+}
+
+
+.section-heading>p:last-child {
+
+    margin-top: 20px;
+
+    color: #5b5b5b;
+}
+
+
+/* =====================================================
+   MENU SECTION
+===================================================== */
+
+.menu-section {
+
+    padding: 120px 7%;
+
+    position: relative;
+
+    background:
+        radial-gradient(rgba(23, 32, 42, .06) 1px,
+            transparent 1px);
+
+    background-size: 12px 12px;
+}
+
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+.filters {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 50px;
+}
+
+
+.filter-btn {
+
+    background: var(--white);
+
+    border: 3px solid var(--ink);
+
+    padding: 12px 22px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+
+.filter-btn:hover {
+
+    transform: translate(2px, 2px);
+
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+
+.filter-btn.active {
+
+    background: var(--orange);
+
+    color: var(--ink);
+}
+
+
+/* =====================================================
+   FOOD GRID
+===================================================== */
+
+.food-grid {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 35px;
+}
+
+
+.food-card {
+
+    background: var(--white);
+
+    border: 4px solid var(--ink);
+
+    box-shadow: 9px 9px 0 var(--ink);
+
+    transition: .35s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.food-card:nth-child(2) {
+
+    transform: translateY(25px);
+}
+
+
+.food-card:nth-child(5) {
+
+    grid-column: span 2;
+}
+
+
+.food-card:hover {
+
+    transform: translateY(-10px) rotate(-1deg);
+
+    box-shadow: 13px 13px 0 var(--red);
+}
+
+
+.food-card:nth-child(2):hover {
+
+    transform: translateY(10px) rotate(1deg);
+}
+
+
+.card-tag {
+
+    position: absolute;
+
+    top: 14px;
+
+    left: 14px;
+
+    background: var(--ink);
+
+    color: white;
+
+    padding: 7px 12px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 2px;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   FOOD IMAGES
+===================================================== */
+
+.food-image {
+
+    height: 300px;
+
+    background: var(--blue);
+
+    overflow: hidden;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.food-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .5s ease;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.food-card:hover .food-image img {
+
+    transform: scale(1.08);
+}
+
+
+.food-placeholder {
+
+    font-size: 130px;
+
+    position: absolute;
+
+    z-index: 1;
+
+    filter: drop-shadow(8px 8px 0 var(--ink));
+
+    animation: foodFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes foodFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+.ikura {
+
+    font-size: 110px;
+
+}
+
+
+.salmon {
+
+    font-size: 150px;
+
+}
+
+
+.ramen {
+
+    font-size: 150px;
+
+}
+
+
+.dango {
+
+    font-size: 150px;
+
+}
+
+
+.matcha {
+
+    font-size: 150px;
+
+}
+
+
+.comic-word {
+
+    position: absolute;
+
+    right: 12px;
+
+    bottom: 15px;
+
+    background: var(--orange);
+
+    color: var(--ink);
+
+    padding: 8px 14px;
+
+    border: 3px solid var(--ink);
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 21px;
+
+    transform: rotate(-5deg);
+
+    z-index: 4;
+
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+
+.ramen-word {
+
+    background: var(--red);
+
+    color: white;
+
+    font-size: 30px;
+}
+
+
+/* =====================================================
+   FOOD INFORMATION
+===================================================== */
+
+.food-info {
+
+    padding: 22px 22px 5px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.food-info h3 {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 28px;
+
+    letter-spacing: 1px;
+}
+
+
+.food-info p {
+
+    font-family: "Noto Serif JP", serif;
+
+    color: var(--red);
+
+    font-size: 13px;
+
+    margin-top: 3px;
+}
+
+
+.food-info strong {
+
+    color: var(--red);
+
+    white-space: nowrap;
+
+    font-size: 17px;
+}
+
+
+.food-description {
+
+    padding: 10px 22px 20px;
+
+    color: #5e5e5e;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+.order-food {
+
+    width: calc(100% - 44px);
+
+    margin: 0 22px 22px;
+
+    padding: 13px;
+
+    background: transparent;
+
+    border: 3px solid var(--ink);
+
+    color: var(--ink);
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.order-food:hover {
+
+    background: var(--ink);
+
+    color: var(--orange);
+}
+
+
+/* =====================================================
+   ORDER SECTION
+===================================================== */
+
+.order-section {
+
+    padding: 100px 7%;
+
+    background: var(--red);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.order-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(rgba(255, 255, 255, .18) 1px,
+            transparent 1px);
+
+    background-size: 10px 10px;
+}
+
+
+.order-panel {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    background: var(--cream);
+
+    border: 5px solid var(--ink);
+
+    box-shadow: 14px 14px 0 var(--ink);
+
+    padding: 45px;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 50px;
+}
+
+
+.order-left h2 {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 65px;
+
+    line-height: .9;
+
+    margin-bottom: 25px;
+}
+
+
+.order-left h2 span {
+
+    color: var(--red);
+}
+
+
+.order-left p:last-child {
+
+    line-height: 1.7;
+
+    color: #555;
+}
+
+
+.order-right {
+
+    border-left: 3px dashed var(--ink);
+
+    padding-left: 35px;
+}
+
+
+#orderList {
+
+    min-height: 100px;
+}
+
+
+.order-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom: 2px solid var(--cream-dark);
+
+    padding: 12px 0;
+
+    font-size: 14px;
+}
+
+
+.empty-order {
+
+    color: #777;
+
+    padding: 20px 0;
+}
+
+
+.order-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 4px solid var(--ink);
+
+    margin-top: 15px;
+
+    padding-top: 20px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 25px;
+}
+
+
+.clear-button {
+
+    margin-top: 20px;
+
+    padding: 10px 18px;
+
+    border: 2px solid var(--ink);
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 1px;
+}
+
+
+.clear-button:hover {
+
+    background: var(--ink);
+
+    color: white;
+}
+
+
+/* =====================================================
+   STORY
+===================================================== */
+
+.story-section {
+
+    padding: 130px 7%;
+
+    background: var(--cream);
+}
+
+
+.story-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+.story-image {
+
+    position: relative;
+}
+
+
+.story-panel {
+
+    aspect-ratio: 4 / 5;
+
+    background: var(--blue);
+
+    border: 5px solid var(--ink);
+
+    box-shadow: 15px 15px 0 var(--ink);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transform: rotate(-3deg);
+}
+
+
+.story-panel::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-conic-gradient(transparent 0deg 10deg,
+            rgba(255, 255, 255, .1) 10deg 20deg);
+}
+
+
+.panel-number {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    background: var(--orange);
+
+    color: var(--ink);
+
+    padding: 8px 12px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    z-index: 2;
+}
+
+
+.giant-kanji {
+
+    font-family: "Noto Serif JP", serif;
+
+    font-size: 210px;
+
+    position: relative;
+
+    z-index: 2;
+
+    color: var(--orange);
+
+    text-shadow: 8px 8px 0 var(--ink);
+}
+
+
+.story-panel p {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 8px;
+
+    font-size: 25px;
+}
+
+
+.story-content h2 {
+
+    margin-bottom: 30px;
+}
+
+
+.story-content>p:not(.heading-number):not(.japanese-heading) {
+
+    color: #555;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+
+    max-width: 650px;
+}
+
+
+.story-facts {
+
+    margin-top: 35px;
+
+    display: grid;
+
+    gap: 15px;
+}
+
+
+.story-facts div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 15px;
+
+    background: var(--white);
+
+    border: 2px solid var(--ink);
+}
+
+
+.story-facts strong {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    color: var(--red);
+
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.quote-section {
+
+    min-height: 550px;
+
+    background: var(--blue);
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.quote-lines {
+
+    position: absolute;
+
+    width: 900px;
+
+    height: 900px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-conic-gradient(transparent 0deg 9deg,
+            rgba(255, 255, 255, .07) 9deg 11deg);
+}
+
+
+.quote-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.quote-symbol {
+
+    font-family: Georgia, serif;
+
+    color: var(--orange);
+
+    font-size: 100px;
+
+    line-height: .5;
+}
+
+
+.quote-content h2 {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    line-height: .9;
+
+    margin: 30px 0;
+}
+
+
+.quote-content h2 span {
+
+    color: var(--orange);
+}
+
+
+.quote-content p {
+
+    font-family: "Noto Serif JP", serif;
+
+    color: var(--orange);
+
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-section {
+
+    padding: 130px 7%;
+
+    background:
+        radial-gradient(rgba(23, 32, 42, .06) 1px,
+            transparent 1px);
+
+    background-size: 12px 12px;
+}
+
+
+.contact-grid {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: .7fr 1.3fr;
+
+    gap: 70px;
+}
+
+
+.contact-info {
+
+    display: grid;
+
+    align-content: start;
+
+    gap: 20px;
+}
+
+
+.contact-card {
+
+    background: var(--white);
+
+    border: 3px solid var(--ink);
+
+    box-shadow: 5px 5px 0 var(--ink);
+
+    padding: 22px;
+
+    display: flex;
+
+    gap: 18px;
+
+    align-items: flex-start;
+}
+
+
+.contact-card>span {
+
+    font-size: 30px;
+}
+
+
+.contact-card h3 {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 6px;
+}
+
+
+.contact-card p {
+
+    color: #666;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* Form */
+
+.contact-form {
+
+    background: var(--white);
+
+    border: 4px solid var(--ink);
+
+    padding: 35px;
+
+    box-shadow: 10px 10px 0 var(--ink);
+}
+
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    border: 2px solid var(--ink);
+
+    background: var(--cream);
+
+    padding: 13px;
+
+    outline: none;
+
+    resize: vertical;
+
+    font-size: 15px;
+
+    transition: .2s ease;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: var(--red);
+
+    box-shadow: 4px 4px 0 var(--orange);
+}
+
+
+.form-group small {
+
+    display: block;
+
+    color: var(--red);
+
+    margin-top: 5px;
+
+    min-height: 17px;
+
+    font-size: 12px;
+}
+
+
+.submit-button {
+
+    margin-top: 5px;
+
+    border: 3px solid var(--ink);
+}
+
+
+.form-success {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #dce8c8;
+
+    border: 2px solid var(--green);
+
+    color: #43552c;
+
+    display: none;
+}
+
+
+.form-success.show {
+
+    display: block;
+
+    animation: successPop .4s ease;
+}
+
+
+@keyframes successPop {
+
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    background: var(--ink);
+
+    color: white;
+
+    padding: 60px 7% 25px;
+}
+
+
+.footer-top {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding-bottom: 45px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+
+.footer-logo {
+
+    width: 90px;
+
+    height: 90px;
+
+    overflow: hidden;
+
+    border: 3px solid white;
+}
+
+
+.footer-logo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.footer-top p {
+
+    color: var(--orange);
+
+    font-family: "Noto Serif JP", serif;
+
+    margin-bottom: 8px;
+}
+
+
+.footer-top h2 {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 45px;
+
+    letter-spacing: 2px;
+}
+
+
+.back-top {
+
+    width: 55px;
+
+    height: 55px;
+
+    border: 3px solid white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    transition: .3s ease;
+}
+
+
+.back-top:hover {
+
+    background: var(--orange);
+
+    color: var(--ink);
+
+    border-color: var(--orange);
+}
+
+
+.footer-bottom {
+
+    max-width: 1200px;
+
+    margin: 25px auto 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #9ea5ab;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.food-card,
+.story-content,
+.story-image,
+.contact-card,
+.contact-form {
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+
+.reveal {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding-top: 150px;
+    }
+
+
+    .hero-description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+
+    .hero-art {
+
+        min-height: 500px;
+    }
+
+
+    .food-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .food-card:nth-child(5) {
+
+        grid-column: span 2;
+    }
+
+
+    .story-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+    }
+
+
+    .story-content {
+
+        text-align: center;
+    }
+
+
+    .story-content>p {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 800px;
+    }
+
+
+    .order-panel {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .order-right {
+
+        border-left: none;
+
+        border-top: 3px dashed var(--ink);
+
+        padding-left: 0;
+
+        padding-top: 30px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .nav-container {
+
+        height: 75px;
+
+        padding: 8px 18px;
+    }
+
+
+    .nav-logo {
+
+        width: 60px;
+
+        height: 60px;
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+    }
+
+
+    nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 75px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: var(--cream);
+
+        border-bottom: 3px solid var(--ink);
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        gap: 10px;
+    }
+
+
+    nav.open {
+
+        display: flex;
+    }
+
+
+    nav a {
+
+        width: 100%;
+
+        text-align: center;
+
+        padding: 12px;
+    }
+
+
+    .hero {
+
+        padding: 130px 20px 70px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 75px;
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .hero-art {
+
+        min-height: 420px;
+    }
+
+
+    .hero-food-card {
+
+        width: 290px;
+
+        height: 360px;
+    }
+
+
+    .burst {
+
+        width: 350px;
+
+        height: 350px;
+    }
+
+
+    .speech-bubble {
+
+        right: -5px;
+
+        font-size: 20px;
+    }
+
+
+    .intro-strip {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .intro-item {
+
+        border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+        font-size: 16px;
+    }
+
+
+    .menu-section,
+    .story-section,
+    .contact-section {
+
+        padding: 80px 20px;
+    }
+
+
+    .section-heading h2,
+    .story-content h2 {
+
+        font-size: 65px;
+    }
+
+
+    .food-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .food-card:nth-child(2) {
+
+        transform: none;
+    }
+
+
+    .food-card:nth-child(5) {
+
+        grid-column: span 1;
+    }
+
+
+    .food-card:nth-child(2):hover {
+
+        transform: translateY(-10px) rotate(-1deg);
+    }
+
+
+    .order-section {
+
+        padding: 70px 20px;
+    }
+
+
+    .order-panel {
+
+        padding: 25px;
+
+        box-shadow: 8px 8px 0 var(--ink);
+    }
+
+
+    .order-left h2 {
+
+        font-size: 55px;
+    }
+
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-form {
+
+        padding: 25px;
+    }
+
+
+    .footer-top {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
